@@ -2,7 +2,7 @@ program Palindrome;
 uses crt;
 
 {
-This program finds biggest palindrom as a multiplication of
+This program finds biggest palindrome as a multiplication of
 two 4-digit numbers.
 }
 
