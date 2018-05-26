@@ -1,0 +1,58 @@
+program Palindrome;
+uses crt;
+
+{
+This program finds biggest palindrom as a multiplication of
+two 4-digit numbers.
+}
+
+const BIG = 9999; //biggest 4-digit number
+const SMALL = 1000; //smallest 4-digit number
+
+	
+{
+Boolean function IsPalindrome detects palindrome number.
+Function's parameter:
+x - multiplication of two 4-digit numbers
+}
+function IsPalindrome(x:LongInt):boolean;
+var i, N:integer;
+	r, m:LongInt;
+begin
+	N := 8; //max number of digits in multiplication
+	m := x; 
+	r := 0; //reverse number
+	for i:=1 to N do begin
+		r := r*10 + m mod 10;
+		m := m div 10; //last digit cut
+	end;
+	if r=x then begin
+		IsPalindrome:=true;
+	end else begin
+		IsPalindrome:=false;
+	end;
+end;
+
+
+{
+Main body.
+}
+var number1, number2:integer;
+	x:LongInt;
+begin
+	WriteLn('This program calculates biggest palindrome ');
+	WriteLn('as a multiplication of two 4-digit numbers. ');
+	for number1:=BIG downto SMALL do begin
+		for number2:=BIG downto SMALL do begin
+			x := number1*number2;//multiplication of two 4-digit numbers
+			if IsPalindrome(x)=true then begin
+				WriteLn('Biggest palindrome is ', x);
+				WriteLn('It is a multiplication of ', number1, ' and ', number2);
+				break;
+			end;
+		end;
+		if IsPalindrome(x)=true then begin
+			break;
+		end;
+	end;
+end.
