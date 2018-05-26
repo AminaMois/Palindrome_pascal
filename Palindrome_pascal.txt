@@ -1,5 +1,4 @@
 program Palindrome;
-uses crt;
 
 {
 This program finds biggest palindrome as a multiplication of
